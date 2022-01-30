@@ -20,7 +20,7 @@ public class StoreList extends BasePage {
     By allStoreLocator= new By.ByCssSelector("a.active:nth-child(1)");
     By storeLettersLocator =  By.xpath("//*[@class=\"letters\"]/span");
     By finAllBtnLocator = new By.ByXPath("//body/div[@id='wrapper']/div[@id='contentSellerList']/div[1]/div[2]/div[1]/div[1]/ul[1]/li[4]");
-    private Actions actionProvider = new Actions(driver);
+    public Actions actionProvider = new Actions(driver);
 
     public StoreList(WebDriver driver) {
         super(driver);
