@@ -4,6 +4,9 @@ package helper;
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import pages.BasePage;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,6 +15,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class Helper {
+
+
     public static void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);

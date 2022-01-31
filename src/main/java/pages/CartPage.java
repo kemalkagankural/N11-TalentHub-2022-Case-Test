@@ -11,7 +11,6 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    By chartPageLocator=By.cssSelector("section.basket.box.box--medium:nth-child(3) > h3.box__title:nth-child(1)");
     By chartBtnLocator=By.className("myBasket");
     By popupLocator=By.cssSelector("div.content div.btnHolder > span.btn.btnBlack");
 
@@ -23,9 +22,6 @@ public class CartPage extends BasePage {
     }
 
 
-    public boolean isCartPage() {
-        return isDisplayed(chartPageLocator);
-    }
     public WebElement chartBTN(){return driver.findElement(chartBtnLocator);}
     public WebElement popupBTN(){return driver.findElement(popupLocator);}
 }

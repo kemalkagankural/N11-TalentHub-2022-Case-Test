@@ -3,8 +3,8 @@ package utils;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 
-public class BackTo extends BasePage {
-    public BackTo(WebDriver driver) {
+public class ReturnToThePreviousPage extends BasePage {
+    public ReturnToThePreviousPage(WebDriver driver) {
         super(driver);
     }
 

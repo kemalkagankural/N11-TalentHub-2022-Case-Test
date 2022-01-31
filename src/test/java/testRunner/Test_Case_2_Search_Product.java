@@ -4,19 +4,22 @@ import helper.Helper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.JavascriptExecutor;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductsPage;
-import utils.BackTo;
+import utils.ReturnToThePreviousPage;
+import utils.BuyProcess;
 import utils.ProductDetailPage;
 
 public class Test_Case_2_Search_Product extends BaseTest {
     HomePage homePage ;
     ProductsPage productsPage;
     ProductDetailPage productDetailPage;
-    BackTo backTo;
+    ReturnToThePreviousPage returnToThePreviousPage;
     CartPage cartPage;
-
+    BuyProcess buyProcess;
+    JavascriptExecutor js;
     @Test
     @Order(1)
     public void search_a_product(){
@@ -40,8 +43,8 @@ public class Test_Case_2_Search_Product extends BaseTest {
     public void add_products_to_cart(){
         productDetailPage = new ProductDetailPage(driver);
         productDetailPage.selectProducts(1);
-        backTo=new BackTo(driver);
-        backTo.doubleBack();
+        returnToThePreviousPage =new ReturnToThePreviousPage(driver);
+        returnToThePreviousPage.doubleBack();
         Helper.waitFor(3);
         productDetailPage.selectProducts(28);
         Assertions.assertTrue(productDetailPage.isOnCart(),"Not add a product!");
@@ -58,20 +61,14 @@ public class Test_Case_2_Search_Product extends BaseTest {
     public void  check_to_cart(){
         cartPage=new CartPage(driver);
         cartPage.goToCart();
-        Helper.waitFor(5);
-        Assertions.assertTrue(cartPage.isCartPage(),"Not add a product!");
-        try {
-            if(cartPage.isCartPage()==true){
-                System.out.println("You are on Cart Page");
-            }
-        }catch (Exception error){
-            System.out.println("Not on Cart Page!");
-        }
-
+        Helper.waitFor(1);
     }
     @Test
     @Order(4)
     public void buy_the_products(){
-
+        buyProcess=new BuyProcess(driver);
+        Helper.waitFor(2);
+        buyProcess.productPrice();
+        buyProcess.buyProduct();
     }
 }
