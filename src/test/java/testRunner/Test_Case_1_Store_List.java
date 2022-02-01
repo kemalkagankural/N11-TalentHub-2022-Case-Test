@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
-import utils.CheckStoreReviews;
-import utils.StoreList;
+import tasks.CheckStoreReviews;
+import tasks.StoreList;
 
 import java.io.IOException;
 

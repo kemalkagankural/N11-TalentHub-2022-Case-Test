@@ -1,4 +1,4 @@
-package utils;
+package tasks;
 
 import helper.Helper;
 import org.openqa.selenium.By;
@@ -9,7 +9,6 @@ import pages.BasePage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class StoreList extends BasePage {

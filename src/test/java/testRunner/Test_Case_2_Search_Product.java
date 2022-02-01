@@ -8,9 +8,10 @@ import org.openqa.selenium.JavascriptExecutor;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductsPage;
-import utils.ReturnToThePreviousPage;
-import utils.BuyProcess;
-import utils.ProductDetailPage;
+import tasks.ReturnToThePreviousPage;
+import tasks.BuyProcess;
+import tasks.ProductDetailPage;
+import tasks.TypeInformation;
 
 public class Test_Case_2_Search_Product extends BaseTest {
     HomePage homePage ;
@@ -19,7 +20,8 @@ public class Test_Case_2_Search_Product extends BaseTest {
     ReturnToThePreviousPage returnToThePreviousPage;
     CartPage cartPage;
     BuyProcess buyProcess;
-    JavascriptExecutor js;
+    TypeInformation typeInformation;
+
     @Test
     @Order(1)
     public void search_a_product(){
@@ -42,11 +44,11 @@ public class Test_Case_2_Search_Product extends BaseTest {
     @Order(2)
     public void add_products_to_cart(){
         productDetailPage = new ProductDetailPage(driver);
-        productDetailPage.selectProducts(1);
+        productDetailPage.selectProducts(2);
         returnToThePreviousPage =new ReturnToThePreviousPage(driver);
         returnToThePreviousPage.doubleBack();
-        Helper.waitFor(3);
-        productDetailPage.selectProducts(28);
+        Helper.waitFor(1);
+        productDetailPage.selectProducts(5);
         Assertions.assertTrue(productDetailPage.isOnCart(),"Not add a product!");
         try {
             if(productDetailPage.isOnCart()==true){
@@ -70,5 +72,10 @@ public class Test_Case_2_Search_Product extends BaseTest {
         Helper.waitFor(2);
         buyProcess.productPrice();
         buyProcess.buyProduct();
+        Helper.waitFor(2);
+        typeInformation=new TypeInformation(driver);
+        typeInformation.typeInformations("test tester","448076033","38547468106","ev");
+        Helper.waitFor(1);
+        typeInformation.selectAdressDetails();
     }
 }

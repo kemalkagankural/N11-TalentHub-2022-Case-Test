@@ -1,4 +1,4 @@
-package utils;
+package tasks;
 
 import helper.Helper;
 import org.openqa.selenium.By;
@@ -18,7 +18,7 @@ public class BuyProcess extends BasePage {
         super(driver);
     }
     By priceProduct=By.cssSelector(" div.prodPrice__text:nth-child(2) > input.productPrice");
-    By spinnerUpLocator=By.cssSelector(".prodPrice:nth-child(2) .spinnerUp");
+    By spinnerUpLocator=By.cssSelector("span.spinnerUp.spinnerArrow");
     By buyBTNLocator=By.id("js-buyBtn");
     By buyGuestLocator=By.className("btn-continue");
     JavascriptExecutor js;
@@ -39,10 +39,11 @@ public class BuyProcess extends BasePage {
       int j = Integer.parseInt(a+a1);
       if(i<j){
           scrollDown();
-          spinnerUp().click();
+          spinnerUp().get(1).click();
           Helper.waitFor(3);
       }else{
           System.out.println("You dont add one more to cheaper one");
+          spinnerUp().get(0).click();
       }
     }
 
@@ -67,7 +68,9 @@ public class BuyProcess extends BasePage {
     public List<WebElement> getAllProducts(){
         return findAll(priceProduct);
     }
-    public WebElement spinnerUp(){return driver.findElement(spinnerUpLocator);}
+    public List<WebElement> spinnerUp(){
+        return findAll(spinnerUpLocator);
+    }
     public WebElement buyBtn(){return driver.findElement(buyBTNLocator);}
     public WebElement buyGuest(){return driver.findElement(buyGuestLocator);}
 

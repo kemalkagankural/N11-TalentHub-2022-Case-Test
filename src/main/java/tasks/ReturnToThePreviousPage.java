@@ -1,4 +1,4 @@
-package utils;
+package tasks;
 
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;

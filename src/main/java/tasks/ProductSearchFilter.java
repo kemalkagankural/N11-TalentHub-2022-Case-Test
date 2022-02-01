@@ -1,4 +1,4 @@
-package utils;
+package tasks;
 
 import helper.Helper;
 import org.openqa.selenium.By;
