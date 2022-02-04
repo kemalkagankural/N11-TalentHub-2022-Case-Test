@@ -1,4 +1,4 @@
-package tasks;
+package utils;
 
 import helper.Helper;
 import org.openqa.selenium.By;
@@ -34,7 +34,7 @@ public class StoreList extends BasePage {
         actionProvider.moveToElement(findStore()).click(findAllStore()).perform();
     }
 
-    public void getAllStoreName() {
+    public void getAllStoreName() throws IOException {
         storesNames = new ArrayList<>();
         actionProvider.click(findAllStoreBtn()).perform();
         List <WebElement> alphabet = getAllLetters();
@@ -45,6 +45,7 @@ public class StoreList extends BasePage {
                 storesNames.add(getAllStoreNames().get(i).getText());
             }
         }
+        Helper.writeToCSV(String.valueOf(storesNames));
     }
     public void writeStoreNames() throws IOException {
     Helper.writeToCSV(String.valueOf(storesNames));

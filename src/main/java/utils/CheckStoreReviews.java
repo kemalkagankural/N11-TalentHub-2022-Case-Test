@@ -1,4 +1,4 @@
-package tasks;
+package utils;
 
 import com.opencsv.exceptions.CsvException;
 import helper.Helper;
@@ -23,6 +23,7 @@ public class CheckStoreReviews extends BasePage {
     }
 
     public void checkReviews() throws IOException, CsvException {
+        Helper.waitFor(1);
         clickStarToS().click();
         Helper.waitFor(1);
         Helper.readToCSV();
@@ -31,12 +32,15 @@ public class CheckStoreReviews extends BasePage {
         seeStorePage().click();
         findStoreReview().click();
         Helper.waitFor(1);
-       if(isOnReviewResult()){
-           System.out.println("Number of comments made=>" +" "+ seeReviewResult().getText());
+
+    }
+
+    public void reviewsNumber(){
+        if(isOnReviewResult()){
+            System.out.println("Number of comments made=>" +" "+ seeReviewResult().getText());
         }
         else{
             System.out.println("No comments found!");
-
         }
     }
 

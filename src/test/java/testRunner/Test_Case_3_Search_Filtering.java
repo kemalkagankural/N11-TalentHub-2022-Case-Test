@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
-import tasks.ProductSearchFilter;
+import utils.ProductSearchFilter;
 import pages.ProductsPage;
 
 public class Test_Case_3_Search_Filtering extends BaseTest {

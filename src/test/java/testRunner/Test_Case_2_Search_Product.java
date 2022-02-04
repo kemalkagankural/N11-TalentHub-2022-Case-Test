@@ -4,14 +4,13 @@ import helper.Helper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.JavascriptExecutor;
 import pages.CartPage;
 import pages.HomePage;
 import pages.ProductsPage;
-import tasks.ReturnToThePreviousPage;
-import tasks.BuyProcess;
-import tasks.ProductDetailPage;
-import tasks.TypeInformation;
+import utils.ReturnToThePreviousPage;
+import utils.BuyProcess;
+import utils.ProductDetailPage;
+import utils.TypeInformation;
 
 public class Test_Case_2_Search_Product extends BaseTest {
     HomePage homePage ;
@@ -44,11 +43,11 @@ public class Test_Case_2_Search_Product extends BaseTest {
     @Order(2)
     public void add_products_to_cart(){
         productDetailPage = new ProductDetailPage(driver);
-        productDetailPage.selectProducts(2);
+        productDetailPage.selectProducts(1);
         returnToThePreviousPage =new ReturnToThePreviousPage(driver);
         returnToThePreviousPage.doubleBack();
         Helper.waitFor(1);
-        productDetailPage.selectProducts(5);
+        productDetailPage.selectProducts(28);
         Assertions.assertTrue(productDetailPage.isOnCart(),"Not add a product!");
         try {
             if(productDetailPage.isOnCart()==true){
@@ -67,15 +66,37 @@ public class Test_Case_2_Search_Product extends BaseTest {
     }
     @Test
     @Order(4)
-    public void buy_the_products(){
-        buyProcess=new BuyProcess(driver);
+    public void set_purchase_details() {
+        buyProcess = new BuyProcess(driver);
         Helper.waitFor(2);
         buyProcess.productPrice();
         buyProcess.buyProduct();
         Helper.waitFor(2);
+    }
+    @Test
+    @Order(5)
+    public void enter_customer_information(){
         typeInformation=new TypeInformation(driver);
-        typeInformation.typeInformations("test tester","448076033","38547468106","ev");
+        typeInformation.typeInformations("test tester","448076033","38547468106","ev","14.sokak no:62");
         Helper.waitFor(1);
         typeInformation.selectAdressDetails();
+        Helper.waitFor(3);
+        buyProcess.payment();
+        Helper.waitFor(1);
+    }
+    @Test
+    @Order(6)
+    public void enter_payment_infomation(){
+        Helper.waitFor(1);
+        typeInformation.enterPaymentInformation();
+        Helper.waitFor(5);
+        Assertions.assertTrue(typeInformation.isErrorMessage(),"Your credit card information is false!");
+        try {
+            if(typeInformation.isErrorMessage()==true){
+                System.out.println("Your credit card information is false!");
+            }
+        }catch (Exception error){
+            System.out.println("Not enter credit card information!");
+        }
     }
 }

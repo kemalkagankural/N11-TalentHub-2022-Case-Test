@@ -1,4 +1,4 @@
-package tasks;
+package utils;
 
 import helper.Helper;
 import org.openqa.selenium.By;
@@ -24,6 +24,7 @@ public class BuyProcess extends BasePage {
     JavascriptExecutor js;
     By mailAreaLocator=By.id("guestEmail");
     By submitButtonLocator=By.id("js-guestEmailCheck");
+    By paymentBTNLocator=By.id("js-goToPaymentBtn");
 
     public  void scrollDown(){
         js = (JavascriptExecutor) driver;
@@ -31,19 +32,19 @@ public class BuyProcess extends BasePage {
     }
 
     public void productPrice(){
-      String a= String.valueOf(getAllProducts().get(0).getAttribute("value").charAt(0));
-      String a1=String.valueOf(getAllProducts().get(0).getAttribute("value").charAt(1));
-      String b= String.valueOf(getAllProducts().get(1).getAttribute("value").charAt(0));
-      String b1= String.valueOf(getAllProducts().get(1).getAttribute("value").charAt(1));
-      int i= Integer.parseInt(b+b1);
-      int j = Integer.parseInt(a+a1);
-      if(i<j){
+        String a= (getAllProducts().get(0).getAttribute("value")).replaceAll("\\.","").replace(",","");
+        int i= Integer.parseInt(a);
+        String b=(getAllProducts().get(1).getAttribute("value")).replaceAll("\\.","").replace(",","");
+        int j= Integer.parseInt(b);
+     if(j<i){
           scrollDown();
           spinnerUp().get(1).click();
           Helper.waitFor(3);
       }else{
           System.out.println("You dont add one more to cheaper one");
+          scrollDown();
           spinnerUp().get(0).click();
+          Helper.waitFor(3);
       }
     }
 
@@ -52,8 +53,7 @@ public class BuyProcess extends BasePage {
         Helper.waitFor(1);
         buyGuest().click();
         Helper.waitFor(1);
-        typeMail("nargizkoshka@lersptear.com");
-        Helper.waitFor(1);
+        typeMail("nargizkoshka@gmail.com");
     }
 
 
@@ -62,9 +62,11 @@ public class BuyProcess extends BasePage {
         click(submitButtonLocator);
     }
 
+    public void payment(){
+        paymentBTN().click();
+    }
 
-
-
+    public WebElement paymentBTN(){return driver.findElement(paymentBTNLocator);}
     public List<WebElement> getAllProducts(){
         return findAll(priceProduct);
     }

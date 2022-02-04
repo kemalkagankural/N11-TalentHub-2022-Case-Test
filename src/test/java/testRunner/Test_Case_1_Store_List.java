@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
-import tasks.CheckStoreReviews;
-import tasks.StoreList;
+import utils.CheckStoreReviews;
+import utils.StoreList;
 
 import java.io.IOException;
 
@@ -35,20 +35,18 @@ public class Test_Case_1_Store_List extends BaseTest {
     }
     @Test
     @Order(3)
-    public void get_all_store(){
+    public void get_all_store() throws IOException {
     storeList = new StoreList(driver);
     storeList.getAllStoreName();
     }
-    @Test
-    @Order(4)
-    public void write_all_store() throws IOException {
-        storeList.writeStoreNames();
-    }
+
   @Test
-    @Order(5)
+    @Order(4)
     public void check_review_number() throws IOException, CsvException {
         checkStoreReviews = new CheckStoreReviews(driver);
         checkStoreReviews.checkReviews();
+        checkStoreReviews.reviewsNumber();
+        Assertions.assertTrue(checkStoreReviews.isOnReviewResult(),"Number of comments made for this Store");
     }
 
 }

@@ -3,10 +3,7 @@ package helper;
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
-import com.opencsv.exceptions.CsvValidationException;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import pages.BasePage;
+
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +12,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class Helper {
-
+     static  String csv ="allstorenames.csv";
 
     public static void waitFor(int seconds) {
         try {
@@ -26,20 +23,18 @@ public class Helper {
     }
 
     public static void writeToCSV(String allstorename) throws IOException {
-        String csv = "allstorenames.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
         writer.writeNext(new String[]{allstorename});
         writer.close();
     }
     public static void readToCSV() throws IOException, CsvException {
-        String csv = "allstorenames.csv";
         BufferedReader reader = new BufferedReader(new FileReader(csv));
         List<String> lines = new ArrayList<>();
         String line = null;
         while ((line = reader.readLine()) != null) {
             lines.add(line);
         }
-        System.out.println("Second store is '"+lines.get(50529)+"' to start to s in AllStorenames.csv");
+        System.out.println("Second store is '"+lines.get(50382)+"' to start to s in AllStorenames.csv");
         }
 
 

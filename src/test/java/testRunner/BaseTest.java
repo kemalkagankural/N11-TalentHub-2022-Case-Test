@@ -18,6 +18,7 @@ public class BaseTest {
 
     @BeforeAll
     public void setUp(){
+        WebDriverManager wdm = WebDriverManager.chromedriver();
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get("https://www.n11.com/");
