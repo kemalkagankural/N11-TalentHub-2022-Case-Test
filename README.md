@@ -10,6 +10,7 @@
       - Preparing Docker Grid<br/>
    &nbsp;
    <br/>
+   
 # Test Case Description
 
 This repo was created for N11 Web Testing.Within the project, 3 test scenarios were written using Java Selenium and Page Object Model.These scenarios are to print all the stores to the CSV file and go to the page of the second store starting with S from this CSV file and check their comments.Also ın these scenarios are to search a product,add to cart,and go to payment step.Also these scenarios contain the searching filtering.Ayrıca bu projede BDD yaklaşımı uygulanmıştır. BDD yaklaşımı tüm birimler tarafından anlaşılabilen ortak bir dil kullanarak test otomasyonunun kolay anlaşılabilir olmasını sağlamaktadır.Test scenarios and runners are included under "test/testrunners”.At the same time, Selenium Grid and Docker were used in this project. Selenium Grid is a system that allows testing in different browsers in parallel.
