@@ -20,7 +20,7 @@ This repo was created for N11 Web Testing.Within the project, 3 test scenarios w
 This image  is taken from  the address that "https://medium.com/devopsturkiye/selenium-grid-nedir-d325a19db2bd".  
 </p>
 
-Created docker-compose.a selenium grid hub is started with a yaml file and the created tests are run in this environment. The docker-compose file created for this project runs at localhost:4444.
+Created docker-compose.A selenium grid hub is started with a yaml file and the created tests are run in this environment. The docker-compose file created for this project runs at localhost:4444.
 
 ## Requirements Before Installation
 - Java
