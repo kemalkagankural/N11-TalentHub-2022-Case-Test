@@ -13,14 +13,14 @@
    
 # Test Case Description
 
-This repo was created for N11 Web Testing.Within the project, 3 test scenarios were written using Java Selenium and Page Object Model.These scenarios are to print all the stores to the CSV file and go to the page of the second store starting with S from this CSV file and check their comments.Also ın these scenarios are to search a product,add to cart,and go to payment step.Also these scenarios contain the searching filtering.Ayrıca bu projede BDD yaklaşımı uygulanmıştır. BDD yaklaşımı tüm birimler tarafından anlaşılabilen ortak bir dil kullanarak test otomasyonunun kolay anlaşılabilir olmasını sağlamaktadır.Test scenarios and runners are included under "test/testrunners”.At the same time, Selenium Grid and Docker were used in this project. Selenium Grid is a system that allows testing in different browsers in parallel.
+This repo was created for N11 Web Testing.Within the project, 3 test scenarios were written using Java Selenium and Page Object Model.These scenarios are to print all the stores to the CSV file and go to the page of the second store starting with S from this CSV file and check their comments.Also ın these scenarios are to search a product,add to cart,and go to payment step.Also these scenarios contain the searching filtering.Test scenarios and runners are included under "test/testrunners”.At the same time, Selenium Grid and Docker were used in this project. Selenium Grid is a system that allows testing in different browsers in parallel.
 
 <p align="center" width="100%">
     <img width="100%" alt="Selenium Grid Mimarisi" src="https://miro.medium.com/max/884/1*rpC1U4ZaA4e3m6rL_acpwQ.png"> 
 This image  is taken from  the address that "https://medium.com/devopsturkiye/selenium-grid-nedir-d325a19db2bd".  
 </p>
 
-Created docker-compose.a selenium grid hub is started with a yaml file and the created tests are run in this environment. The docker-compose file created for this project runs at localhost:4444. Hence the Driver.the remote browser addresses contained in the java file are set according to this address.
+Created docker-compose.a selenium grid hub is started with a yaml file and the created tests are run in this environment. The docker-compose file created for this project runs at localhost:4444.
 
 ## Requirements Before Installation
 - Java
