@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import utils.CheckStoreReviews;
+import utils.SelectSecondStore;
 import utils.StoreList;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class Test_Case_1_Store_List extends BaseTest {
     HomePage homePage;
     StoreList storeList;
     CheckStoreReviews checkStoreReviews;
+    SelectSecondStore selectSecondStore;
 
 
     @Test
@@ -40,8 +42,15 @@ public class Test_Case_1_Store_List extends BaseTest {
     storeList.getAllStoreName();
     }
 
-  @Test
+
+    @Test
     @Order(4)
+    public void click_second_store() throws IOException, CsvException {
+        selectSecondStore=new SelectSecondStore(driver);
+        selectSecondStore.selectSecondStore();
+    }
+  @Test
+    @Order(5)
     public void check_review_number() throws IOException, CsvException {
         checkStoreReviews = new CheckStoreReviews(driver);
         checkStoreReviews.checkReviews();

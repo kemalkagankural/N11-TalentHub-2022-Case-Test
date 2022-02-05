@@ -3,8 +3,6 @@ package helper;
 
 import com.opencsv.*;
 import com.opencsv.exceptions.CsvException;
-
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,8 +10,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class Helper {
-     static  String csv ="allstorenames.csv";
-
+    public static String csv;
+    //Wait method
     public static void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
@@ -21,23 +19,34 @@ public class Helper {
             e.printStackTrace();
         }
     }
-
+    //Writer to CSV
     public static void writeToCSV(String allstorename) throws IOException {
+        csv ="allstorenames.csv";
         CSVWriter writer = new CSVWriter(new FileWriter(csv));
         writer.writeNext(new String[]{allstorename});
         writer.close();
     }
-    public static void readToCSV() throws IOException, CsvException {
+    //Reader to CSV
+    public static String readToCSV(String letter) throws IOException, CsvException {
         BufferedReader reader = new BufferedReader(new FileReader(csv));
         List<String> lines = new ArrayList<>();
-        String line = null;
+        String line =null;
         while ((line = reader.readLine()) != null) {
-            lines.add(line);
+            //no case sensivty
+            lines.add(line.toLowerCase());
         }
-        System.out.println("Second store is '"+lines.get(50382)+"' to start to s in AllStorenames.csv");
+        List<String> result = new ArrayList<>();
+        int order = 0 ;
+        for (String s : lines) {
+            if (s.startsWith(letter)) {
+                order++;
+                if(order == 1){
+                    result.add(s);
+                }
+            }
         }
-
-
+        return result.toString();
+    }
     }
 
 

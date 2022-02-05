@@ -28,7 +28,7 @@ public class Test_Case_3_Search_Filtering extends BaseTest {
     }
     @Test
     @Order(2)
-    public void filter_to_search() throws InterruptedException {
+    public void filter_to_search(){
         productSearchFilter= new ProductSearchFilter(driver);
         productSearchFilter.clickFilter();
         Assertions.assertTrue(productsPage.isOnProductPage(),

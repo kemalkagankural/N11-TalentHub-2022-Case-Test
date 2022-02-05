@@ -9,10 +9,10 @@ import pages.BasePage;
 
 
 public class ProductSearchFilter extends BasePage {
-    By filtercheckboxLocator = new By.ById("brand-m-Samsung");
+    By filtercheckboxLocator = new By.ById("brand-m-Xiaomi");
     By sortoptionsLocator=By.id("sortingType");
     By freeshippingcheckboxLocator=By.id("freeShippingOption");
-    //Select
+
 
     public ProductSearchFilter(WebDriver driver) {
         super(driver);

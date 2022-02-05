@@ -7,7 +7,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import testLogger.TestResultLogger;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -15,14 +22,21 @@ import testLogger.TestResultLogger;
 public class BaseTest {
 
     public WebDriver driver ;
-
+    static final String APP_URL = "https://www.n11.com/";
+    static final String HOST_URL = "http://localhost:4444/wd/hub";
     @BeforeAll
     public void setUp(){
-        WebDriverManager wdm = WebDriverManager.chromedriver();
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("https://www.n11.com/");
-        driver.manage().window().maximize();
+        ChromeOptions opt = new ChromeOptions();
+        //FirefoxOptions opt=new FirefoxOptions();
+        
+        try {
+            driver = new RemoteWebDriver(new URL(HOST_URL),opt);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(APP_URL);
     }
 
     @AfterAll

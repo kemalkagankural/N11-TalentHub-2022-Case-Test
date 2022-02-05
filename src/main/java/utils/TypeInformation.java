@@ -37,18 +37,24 @@ public class TypeInformation extends BasePage {
         type(adressDetailsLocator,adressdetails);
     }
     public  void selectAdressDetails(){
+        // 1 | click | id=cityId |
         driver.findElement(By.id("cityId")).click();
+        // 2 | select | id=cityId | label=Bursa
         Helper.waitFor(2);
         WebElement dropdown = driver.findElement(By.id("cityId"));
         Helper.waitFor(2);
         dropdown.findElement(By.xpath("//option[. = 'Bursa']")).click();
         Helper.waitFor(2);
+        // 3 | click | id=districtId |
         driver.findElement(By.id("districtId")).click();
+        // 4 | select | id=districtId | label=Karacabey
         WebElement dropdown1 = driver.findElement(By.id("districtId"));
         Helper.waitFor(2);
         dropdown1.findElement(By.xpath("//option[. = 'Karacabey']")).click();
         Helper.waitFor(2);
+        // 5 | click | id=neighbourhoodId |
         driver.findElement(By.id("neighbourhoodId")).click();
+        // 6 | select | id=neighbourhoodId | label=Drama
         WebElement dropdown2 = driver.findElement(By.id("neighbourhoodId"));
         Helper.waitFor(2);
         dropdown2.findElement(By.xpath("//option[. = 'Drama']")).click();
@@ -115,7 +121,7 @@ public class TypeInformation extends BasePage {
     }
 
 
- // driver.findElement(By.id("creditCardTabPanel")).click();
+
     public WebElement selectPhone(){return driver.findElement(phoneLocator);}
 
     }

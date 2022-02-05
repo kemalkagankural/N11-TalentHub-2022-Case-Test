@@ -47,6 +47,7 @@ public class StoreList extends BasePage {
         }
         Helper.writeToCSV(String.valueOf(storesNames));
     }
+
     public void writeStoreNames() throws IOException {
     Helper.writeToCSV(String.valueOf(storesNames));
     }

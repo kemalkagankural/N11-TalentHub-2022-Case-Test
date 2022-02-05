@@ -17,6 +17,7 @@ public class BuyProcess extends BasePage {
     public BuyProcess(WebDriver driver) {
         super(driver);
     }
+    //Locators
     By priceProduct=By.cssSelector(" div.prodPrice__text:nth-child(2) > input.productPrice");
     By spinnerUpLocator=By.cssSelector("span.spinnerUp.spinnerArrow");
     By buyBTNLocator=By.id("js-buyBtn");
@@ -26,6 +27,7 @@ public class BuyProcess extends BasePage {
     By submitButtonLocator=By.id("js-guestEmailCheck");
     By paymentBTNLocator=By.id("js-goToPaymentBtn");
 
+    //Scroll Down via Javascript
     public  void scrollDown(){
         js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0,500)");
