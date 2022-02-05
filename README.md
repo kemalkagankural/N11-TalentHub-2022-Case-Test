@@ -32,6 +32,7 @@ Created docker-compose.A selenium grid hub is started with a yaml file and the c
 ## Installation Steps
 
 1- The Bash screen opens.
+
 `
 
 2- N11-TalentHub-2022-Case-Test repo is copied to the local device.
