@@ -22,7 +22,6 @@ This image  is taken from  the address that "https://medium.com/devopsturkiye/se
 Created docker-compose.a selenium grid hub is started with a yaml file and the created tests are run in this environment. The docker-compose file created for this project runs at localhost:4444. Hence the Driver.the remote browser addresses contained in the java file are set according to this address.
 
 ## Requirements Before Installation
-
 - Java
 - Maven
 - Selenium-java
